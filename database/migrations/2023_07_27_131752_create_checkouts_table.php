@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('fname');
-            $table->string('lname');
+            $table->foreignId('user_id')->constrained();
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone');
             $table->text('address_line1');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('country');
             $table->string('city');
             $table->string('state');
-            $table->integer('zip_code');
+            $table->string('zip_code');
             $table->timestamps();
         });
     }

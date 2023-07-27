@@ -20,6 +20,8 @@ return new class extends Migration
             $table->decimal('discounted_price', 5, 2)->nullable();
             $table->json('sizes');
             $table->json('colors');
+            $table->string('image')->nullable();
+            //            $table->integer('rate');
             $table->text('description')->nullable();
             $table->text('details')->nullable();
             $table->timestamps();

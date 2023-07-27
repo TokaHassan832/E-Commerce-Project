@@ -34,6 +34,7 @@ class ProductFactory extends Factory
             'discounted_price'=>$discounted_price,
             'sizes' => json_encode($sizes),
             'colors' => json_encode($colors),
+            'image'=> $this->faker->imageUrl,
             'description'=>$this->faker->paragraph,
             'details'=>$this->faker->paragraph(5)
         ];

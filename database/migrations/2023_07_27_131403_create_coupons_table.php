@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cobons', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->id();
             $table->foreignId('offer_id')->constrained()->cascadeOnDelete();
-            $table->integer('code');
+            $table->string('code')->default('available');
             $table->string('status');
             $table->timestamps();
         });

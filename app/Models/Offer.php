@@ -15,7 +15,7 @@ class Offer extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function cobons(){
-        return $this->hasMany(Cobon::class);
+    public function coupons(){
+        return $this->hasMany(Coupon::class);
     }
 }
