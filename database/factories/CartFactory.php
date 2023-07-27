@@ -20,14 +20,13 @@ class CartFactory extends Factory
     {
         $quantity = $this->faker->numberBetween(1, 50);
         $unit_price = $this->faker->randomFloat(2, 10, 100);
-        $total_price = $quantity * $unit_price;
+        $Subtotal = $quantity * $unit_price;
 
         return [
             'user_id'=>User::factory(),
-            'product_id'=>Product::factory(),
             'quantity' => $quantity,
             'unit_price' => $unit_price,
-            'total_price' => $total_price,
+            'Subtotal' => $Subtotal,
         ];
     }
 }

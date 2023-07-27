@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Offer;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -29,6 +30,7 @@ class ProductFactory extends Factory
         return [
             'category_id'=>Category::factory(),
             'offer_id'=>Offer::factory(),
+            'cart_id'=>Cart::factory(),
             'name'=>$this->faker->word,
             'original_price'=>$original_price,
             'discounted_price'=>$discounted_price,
