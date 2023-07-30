@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,17 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/shop', function () {
-    return view('shop');
-});
-
-Route::get('/detail', function () {
-    return view('detail');
-});
+Route::get('/',[HomeController::class,'index']);
+Route::get('products',[ProductController::class,'index']);
+Route::get('products/{product}',[ProductController::class,'show']);
 
 Route::get('/contact', function () {
     return view('contact');

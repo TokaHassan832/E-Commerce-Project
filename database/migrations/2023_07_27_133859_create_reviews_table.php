@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
 //            $table->integer('rate');
-            $table->text('review');
+            $table->text('content');
             $table->timestamps();
         });
     }

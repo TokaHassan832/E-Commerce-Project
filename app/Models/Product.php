@@ -25,4 +25,9 @@ class Product extends Model
     public function reviews(){
         return $this->hasMany(Review::class);
     }
+
+    public function relatedProducts()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'category_id');
+    }
 }

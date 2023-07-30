@@ -24,7 +24,7 @@ class ReviewFactory extends Factory
             'name'=>$this->faker->name,
             'email'=>$this->faker->email,
 //            'rate'=> $this->faker->randomFloat(1, 1, 5),
-            'review'=>$this->faker->text,
+            'content'=>$this->faker->text,
         ];
     }
 }
