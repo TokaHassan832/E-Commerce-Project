@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -17,21 +19,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class,'index']);
+
 Route::get('products',[ProductController::class,'index']);
 Route::get('products/{product}',[ProductController::class,'show']);
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('contact', [ContactController::class,'index']);
+Route::post('contact',[ContactController::class,'store']);
+
+Route::get('checkout', [CheckoutController::class,'index']);
+Route::post('checkout', [CheckoutController::class,'store']);
+
 
 Route::get('/cart', function () {
     return view('cart');
 });
-
-Route::get('/checkout', function () {
-    return view('checkout');
-});
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

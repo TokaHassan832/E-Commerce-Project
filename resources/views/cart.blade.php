@@ -3,7 +3,7 @@
 <body>
 @include('components.header')
 
-@include('components.breadcrumb')
+@include('components.breadcrumb', ['title' => 'Shopping Cart'])
 
 <!-- Cart Start -->
 <div class="container-fluid">

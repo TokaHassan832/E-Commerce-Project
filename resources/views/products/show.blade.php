@@ -3,7 +3,7 @@
 <body>
 @include('components.header')
 
-@include('components.breadcrumb')
+@include('components.breadcrumb', ['title' => 'Shop Detail'])
 
 
 <!-- Shop Detail Start -->

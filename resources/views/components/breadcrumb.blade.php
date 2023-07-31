@@ -5,8 +5,7 @@
             <nav class="breadcrumb bg-light mb-30">
                 <a class="breadcrumb-item text-dark" href="/">Home</a>
                 <a class="breadcrumb-item text-dark" href="products">Shop</a>
-                <span class="breadcrumb-item active">@yield('title')</span>
-{{--                Shop List  , Shop Detail  ,  Shopping Cart ,  Checkout , Contact --}}
+                <span class="breadcrumb-item active">{{ $title }}</span>
             </nav>
         </div>
     </div>

@@ -4,7 +4,7 @@
 
 @include('components.header')
 
-@include('components.breadcrumb')
+@include('components.breadcrumb', ['title' => 'Checkout'])
 
 
 <!-- Checkout Start -->
@@ -60,6 +60,7 @@
                         <label>ZIP Code</label>
                         <input class="form-control" type="text" placeholder="123">
                     </div>
+
                     <div class="col-md-12 form-group">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="newaccount">

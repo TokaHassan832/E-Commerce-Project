@@ -5,7 +5,7 @@
 @include('components.header')
 
 
-@include('components.breadcrumb')
+@include('components.breadcrumb', ['title' => 'Shop List'])
 
 
 <!-- Shop Start -->

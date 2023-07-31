@@ -14,9 +14,6 @@ class Cart extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function checkouts(){
-        return $this->hasMany(Checkout::class);
-    }
 
     public function user()
     {

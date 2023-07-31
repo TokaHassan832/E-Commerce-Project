@@ -4,7 +4,7 @@
 
 @include('components.header')
 
-@include('components.breadcrumb')
+@include('components.breadcrumb', ['title' => 'Contact'])
 
 
 <!-- Contact Start -->
@@ -15,27 +15,36 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <form action="contact" method="post" name="sentMessage" id="contactForm" novalidate="novalidate">
+                    @csrf
                     <div class="control-group">
-                        <input type="text" class="form-control" id="name" placeholder="Your Name"
+                        <input type="text" class="form-control" id="name" value="{{ old('name') }}" placeholder="Your Name"
                                required="required" data-validation-required-message="Please enter your name"/>
-                        <p class="help-block text-danger"></p>
+                        @error('name')
+                        <small class="form-text text-muted">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="control-group">
-                        <input type="email" class="form-control" id="email" placeholder="Your Email"
+                        <input type="email" class="form-control" id="email" value="{{ old('email') }}" placeholder="Your Email"
                                required="required" data-validation-required-message="Please enter your email"/>
-                        <p class="help-block text-danger"></p>
+                        @error('email')
+                        <small class="form-text text-muted">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="control-group">
-                        <input type="text" class="form-control" id="subject" placeholder="Subject"
+                        <input type="text" class="form-control" id="subject" value="{{ old('subject') }}" placeholder="Subject"
                                required="required" data-validation-required-message="Please enter a subject"/>
-                        <p class="help-block text-danger"></p>
+                        @error('subject')
+                        <small class="form-text text-muted">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="control-group">
                             <textarea class="form-control" rows="8" id="message" placeholder="Message"
                                       required="required"
-                                      data-validation-required-message="Please enter your message"></textarea>
-                        <p class="help-block text-danger"></p>
+                                      data-validation-required-message="Please enter your message">{{ old('message') }}</textarea>
+                        @error('message')
+                        <small class="form-text text-muted">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div>
                         <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Send
