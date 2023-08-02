@@ -7,6 +7,21 @@
 
 <!-- Cart Start -->
 <div class="container-fluid">
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+
+    @if(count($errors)>0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row px-xl-5">
         <div class="col-lg-8 table-responsive mb-5">
             <table class="table table-light table-borderless table-hover text-center mb-0">
@@ -20,11 +35,12 @@
                 </tr>
                 </thead>
                 <tbody class="align-middle">
+                @foreach(Gloudemans\Shoppingcart\Facades\Cart::content() as $item)
                 <tr>
-                    <td class="align-middle"><img src="assets/img/product-1.jpg" alt="" style="width: 50px;"> Product
-                        Name
+                    <td class="align-middle"><img src="{{ $item->model->image }}" alt="" style="width: 50px;"> <a href="{{ route('product.show',[$item->id]) }}">{{ $item->model->name }}
+                        </a>
                     </td>
-                    <td class="align-middle">$150</td>
+                    <td class="align-middle">{{ $item->model->original_price }}</td>
                     <td class="align-middle">
                         <div class="input-group quantity mx-auto" style="width: 100px;">
                             <div class="input-group-btn">
@@ -41,115 +57,12 @@
                             </div>
                         </div>
                     </td>
-                    <td class="align-middle">$150</td>
+                    <td class="align-middle">{{ $item->model->original_price * $item->qty }}</td>
                     <td class="align-middle">
                         <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
                     </td>
                 </tr>
-                <tr>
-                    <td class="align-middle"><img src="assets/img/product-2.jpg" alt="" style="width: 50px;"> Product
-                        Name
-                    </td>
-                    <td class="align-middle">$150</td>
-                    <td class="align-middle">
-                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center"
-                                   value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="align-middle">$150</td>
-                    <td class="align-middle">
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="align-middle"><img src="assets/img/product-3.jpg" alt="" style="width: 50px;"> Product
-                        Name
-                    </td>
-                    <td class="align-middle">$150</td>
-                    <td class="align-middle">
-                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center"
-                                   value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="align-middle">$150</td>
-                    <td class="align-middle">
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="align-middle"><img src="assets/img/product-4.jpg" alt="" style="width: 50px;"> Product
-                        Name
-                    </td>
-                    <td class="align-middle">$150</td>
-                    <td class="align-middle">
-                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center"
-                                   value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="align-middle">$150</td>
-                    <td class="align-middle">
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="align-middle"><img src="assets/img/product-5.jpg" alt="" style="width: 50px;"> Product
-                        Name
-                    </td>
-                    <td class="align-middle">$150</td>
-                    <td class="align-middle">
-                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center"
-                                   value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="align-middle">$150</td>
-                    <td class="align-middle">
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
-                    </td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

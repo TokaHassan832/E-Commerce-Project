@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -18,21 +19,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name('home');
 
-Route::get('products',[ProductController::class,'index']);
-Route::get('products/{product}',[ProductController::class,'show']);
+Route::get('products',[ProductController::class,'index'])->name('product.index');
+Route::get('products/{product}',[ProductController::class,'show'])->name('product.show');
 
-Route::get('contact', [ContactController::class,'index']);
-Route::post('contact',[ContactController::class,'store']);
+Route::get('contact', [ContactController::class,'index'])->name('contact.index');
+Route::post('contact',[ContactController::class,'store'])->name('contact.store');
 
-Route::get('checkout', [CheckoutController::class,'index']);
-Route::post('checkout', [CheckoutController::class,'store']);
+Route::get('checkout', [CheckoutController::class,'index'])->name('checkout.index');
+Route::post('checkout', [CheckoutController::class,'store'])->name('checkout.store');
 
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/cart',[CartController::class,'index'])->name('cart.index');
+Route::post('/cart',[CartController::class,'store'])->name('cart.store');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
