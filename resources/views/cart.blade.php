@@ -35,7 +35,7 @@
                 </tr>
                 </thead>
                 <tbody class="align-middle">
-                @foreach(Gloudemans\Shoppingcart\Facades\Cart::content() as $item)
+                @foreach( Cart::content() as $item)
                 <tr>
                     <td class="align-middle"><img src="{{ $item->model->image }}" alt="" style="width: 50px;"> <a href="{{ route('product.show',[$item->id]) }}">{{ $item->model->name }}
                         </a>
@@ -59,7 +59,11 @@
                     </td>
                     <td class="align-middle">{{ $item->model->original_price * $item->qty }}</td>
                     <td class="align-middle">
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
+                        <form action="{{ route('cart.destroy',[$item->rowId]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -81,17 +85,17 @@
                 <div class="border-bottom pb-2">
                     <div class="d-flex justify-content-between mb-3">
                         <h6>Subtotal</h6>
-                        <h6>$150</h6>
+                        <h6>{{ Cart::subtotal() }}</h6>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h6 class="font-weight-medium">Shipping</h6>
-                        <h6 class="font-weight-medium">$10</h6>
+                        <h6 class="font-weight-medium">{{ Cart::tax() }}</h6>
                     </div>
                 </div>
                 <div class="pt-2">
                     <div class="d-flex justify-content-between mt-2">
                         <h5>Total</h5>
-                        <h5>$160</h5>
+                        <h5>{{ Cart::total() }}</h5>
                     </div>
                     <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
                 </div>
