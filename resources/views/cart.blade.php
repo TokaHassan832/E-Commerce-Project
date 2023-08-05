@@ -42,20 +42,27 @@
                     </td>
                     <td class="align-middle">{{ $item->model->original_price }}</td>
                     <td class="align-middle">
-                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center"
-                                   value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
+                        <div>
+                            <select class="quantity" data-id="{{ $item->rowId }}">
+                                @for($i=1; $i<5+1; $i++)
+                                <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                @endfor
+                            </select>
                         </div>
+{{--                                <div class="input-group quantity mx-auto" style="width: 100px;">--}}
+{{--                                    <div class="input-group-btn">--}}
+{{--                                        <button class="btn btn-sm btn-primary btn-minus" data-row-id="{{ $item->rowId }}">--}}
+{{--                                            <i class="fa fa-minus"></i>--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
+{{--                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center quantity-input"--}}
+{{--                                           data-row-id="{{ $item->rowId }}" value="{{ $item->qty }}">--}}
+{{--                                    <div class="input-group-btn">--}}
+{{--                                        <button class="btn btn-sm btn-primary btn-plus" data-row-id="{{ $item->rowId }}">--}}
+{{--                                            <i class="fa fa-plus"></i>--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                     </td>
                     <td class="align-middle">{{ $item->model->original_price * $item->qty }}</td>
                     <td class="align-middle">
@@ -97,7 +104,8 @@
                         <h5>Total</h5>
                         <h5>{{ Cart::total() }}</h5>
                     </div>
-                    <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
+
+                    <a href="{{ route('checkout.index') }}" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</a>
                 </div>
             </div>
         </div>
@@ -114,6 +122,34 @@
 
 
 <!-- JavaScript Libraries -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script>
+    (function(){
+        const classname = document.querySelectorAll('.quantity')
+
+        Array.from(classname).forEach( function(element) {
+            element.addEventListener('change', function() {
+
+                const id = element.getAttribute('data-id')
+
+                axios.patch(`/cart/${id}`, {
+                    quantity: this.value
+                })
+                    .then(function(response) {
+                        window.location.href = "{{ route('cart.index') }}"
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                        window.location.href = "{{ route('cart.index') }}"
+                    });
+
+            })
+        })
+    })();
+</script>
+
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="assets/lib/easing/easing.min.js"></script>

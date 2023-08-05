@@ -22,5 +22,6 @@ class CouponFactory extends Factory
             'code' => (string) $this->faker->randomNumber(),
             'status' => $this->faker->randomElement(['available', 'unavailable']),
         ];
+
     }
 }
