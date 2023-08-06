@@ -64,9 +64,9 @@
                         <div class="text-center py-4">
                             <a class="h6 text-decoration-none text-truncate" href="products/{{ $product->id }}">{{ $product->name }}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <h5>{{ $product->discounted_price }}</h5>
+                                <h5>{{ presentPrice($product->discounted_price) }}</h5>
                                 <h6 class="text-muted ml-2">
-                                    <del>{{ $product->original_price }}</del>
+                                    <del>{{ presentPrice($product->original_price) }}</del>
                                 </h6>
                             </div>
                             <div class="d-flex align-items-center justify-content-center mb-1">

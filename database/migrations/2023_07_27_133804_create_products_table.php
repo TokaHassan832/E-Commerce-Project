@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignId('offer_id')->nullable();
             $table->foreignId('cart_id');
             $table->string('name');
-            $table->decimal('original_price', 5, 2);
-            $table->decimal('discounted_price', 5, 2)->nullable();
+            $table->integer('original_price');
+            $table->integer('discounted_price')->nullable();
             $table->json('sizes');
             $table->json('colors');
             $table->string('image')->nullable();

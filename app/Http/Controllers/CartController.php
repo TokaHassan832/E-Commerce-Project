@@ -10,8 +10,19 @@ use Illuminate\Support\Facades\Validator;
 class CartController extends Controller
 {
     public function index(){
-        $products = Product::all();
-        return view('cart',['products'=>$products]);
+
+        $tax = config('cart.tax')/100;
+        $discount = session()->get('coupon')['discount'] ?? 0;
+        $newSubtotal = (Cart::subtotal()-$discount);
+        $newTax = $newSubtotal * $tax;
+        $newTotal = $newSubtotal + $newTax;
+
+        return view('cart')->with([
+            'discount'=>$discount,
+            'newSubtotal'=>$newSubtotal,
+            'newTax'=>$newTax,
+            'newTotal'=>$newTotal
+        ]);
     }
 
 

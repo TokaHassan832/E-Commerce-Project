@@ -19,10 +19,7 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        $original_price = $this->faker->randomFloat(2, 100, 1000);
-        $offerPercentage = Offer::inRandomOrder()->value('offer_percentage');
-        $discountAmount = $original_price * ($offerPercentage / 100);
-        $discounted_price = $original_price - $discountAmount;
+
 
         $colors = $this->faker->randomElements(['Red', 'Blue', 'Green', 'Yellow', 'Black', 'White'], $this->faker->numberBetween(1, 4));
         $sizes = $this->faker->randomElements(['Small', 'Medium', 'Large', 'XL', 'XXL'], $this->faker->numberBetween(1,5 ));
@@ -32,8 +29,8 @@ class ProductFactory extends Factory
             'offer_id'=>Offer::factory(),
             'cart_id'=>Cart::factory(),
             'name'=>$this->faker->word,
-            'original_price'=>$original_price,
-            'discounted_price'=>$discounted_price,
+            'original_price'=>$this->faker->randomNumber(3,10000),
+            'discounted_price'=>$this->faker->randomNumber(3,10000),
             'sizes' => json_encode($sizes),
             'colors' => json_encode($colors),
             'image'=> $this->faker->imageUrl,

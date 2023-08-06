@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('offer_id')->constrained()->cascadeOnDelete();
-            $table->string('code')->default('available');
-            $table->string('status');
+            $table->string('code')->unique();
+            $table->string('type');
+            $table->integer('value')->nullable();
+            $table->foreignId('offer_id')->nullable()
+                ->constrained()
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

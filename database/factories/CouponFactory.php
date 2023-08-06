@@ -18,9 +18,7 @@ class CouponFactory extends Factory
     public function definition(): array
     {
         return [
-            'offer_id' => Offer::factory(),
-            'code' => (string) $this->faker->randomNumber(),
-            'status' => $this->faker->randomElement(['available', 'unavailable']),
+
         ];
 
     }

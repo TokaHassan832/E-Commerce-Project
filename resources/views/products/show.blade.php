@@ -32,7 +32,7 @@
                     </div>
                     <small class="pt-1">{{ $product->reviews->count() }}</small>
                 </div>
-                <h3 class="font-weight-semi-bold mb-4">{{ $product->original_price }}</h3>
+                <h3 class="font-weight-semi-bold mb-4">{{ presentPrice($product->original_price) }}</h3>
                 <p class="mb-4">{{ $product->description }}</p>
                 <div class="d-flex mb-3">
                     <strong class="text-dark mr-3">Sizes:</strong>
@@ -215,9 +215,9 @@
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">{{ $product->name }}</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>{{ $product->discounted_price }}</h5>
+                            <h5>{{ presentPrice($product->discounted_price) }}</h5>
                             <h6 class="text-muted ml-2">
-                                <del>{{ $product->original_price }}</del>
+                                <del>{{ presentPrice($product->original_price) }}</del>
                             </h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">

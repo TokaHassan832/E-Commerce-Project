@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -29,6 +30,9 @@ Route::post('contact',[ContactController::class,'store'])->name('contact.store')
 
 Route::get('checkout', [CheckoutController::class,'index'])->name('checkout.index');
 Route::post('checkout', [CheckoutController::class,'store'])->name('checkout.store');
+
+Route::post('coupon', [CouponController::class,'store'])->name('coupon.store');
+Route::delete('coupon', [CouponController::class,'destroy'])->name('coupon.destroy');
 
 
 Route::get('cart',[CartController::class,'index'])->name('cart.index');
