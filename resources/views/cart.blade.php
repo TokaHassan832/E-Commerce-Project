@@ -50,20 +50,6 @@
                                 @endfor
                             </select>
                         </div>
-{{--                                <div class="input-group quantity mx-auto" style="width: 100px;">--}}
-{{--                                    <div class="input-group-btn">--}}
-{{--                                        <button class="btn btn-sm btn-primary btn-minus" data-row-id="{{ $item->rowId }}">--}}
-{{--                                            <i class="fa fa-minus"></i>--}}
-{{--                                        </button>--}}
-{{--                                    </div>--}}
-{{--                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center quantity-input"--}}
-{{--                                           data-row-id="{{ $item->rowId }}" value="{{ $item->qty }}">--}}
-{{--                                    <div class="input-group-btn">--}}
-{{--                                        <button class="btn btn-sm btn-primary btn-plus" data-row-id="{{ $item->rowId }}">--}}
-{{--                                            <i class="fa fa-plus"></i>--}}
-{{--                                        </button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                     </td>
                     <td class="align-middle">{{ presentPrice($item->model->original_price * $item->qty) }}</td>
                     <td class="align-middle">

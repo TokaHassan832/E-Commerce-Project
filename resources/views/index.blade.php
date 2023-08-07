@@ -129,7 +129,7 @@
                         <img class="img-fluid" src="{{ $category->image }}" alt="">
                     </div>
                     <div class="flex-fill pl-3">
-                        <h6>{{ $category->name }}</h6>
+                        <a href="products/?category={{ $category->slug }}">{{ $category->name }}</a>
                         <small class="text-body">{{ $category->products->count() }}</small>
                     </div>
                 </div>
