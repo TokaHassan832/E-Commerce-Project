@@ -26,7 +26,7 @@
                                 <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem
                                     magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
                                 <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
-                                   href="#">Shop Now</a>
+                                   href="products">Shop Now</a>
                             </div>
                         </div>
                     </div>

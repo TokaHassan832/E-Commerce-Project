@@ -115,7 +115,7 @@
             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                 <div class="navbar-nav w-100">
                     @foreach($categories as $category)
-                    <a href="" class="nav-item nav-link">{{ $category->name }}</a>
+                    <a href="products/?category={{ $category->slug }}" class="nav-item nav-link">{{ $category->name }}</a>
                     @endforeach
                 </div>
             </nav>
