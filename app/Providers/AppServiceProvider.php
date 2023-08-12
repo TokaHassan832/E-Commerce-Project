@@ -21,6 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['index','products.*','cart','contact','checkout'],CategoryComposer::class);
+        View::composer(['index','components.header'],CategoryComposer::class);
     }
 }

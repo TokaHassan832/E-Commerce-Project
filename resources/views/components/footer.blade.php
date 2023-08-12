@@ -15,7 +15,6 @@
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-secondary mb-2" href="{{ route('dashboard') }}"><i class="fa fa-angle-right mr-2"></i>Dashboard</a>
                         <a class="text-secondary mb-2" href="products"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
                         <a class="text-secondary mb-2" href="cart"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
                         <a class="text-secondary mb-2" href="checkout"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
                         <a class="text-secondary" href="contact"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
@@ -26,7 +25,6 @@
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-secondary mb-2" href="{{ route('dashboard') }}"><i class="fa fa-angle-right mr-2"></i>Dashboard</a>
                         <a class="text-secondary mb-2" href="products"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
                         <a class="text-secondary mb-2" href="cart"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
                         <a class="text-secondary mb-2" href="checkout"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
                         <a class="text-secondary" href="contact"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
@@ -68,3 +66,22 @@
     </div>
 </div>
 <!-- Footer End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="assets/lib/easing/easing.min.js"></script>
+<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="assets/mail/jqBootstrapValidation.min.js"></script>
+<script src="assets/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

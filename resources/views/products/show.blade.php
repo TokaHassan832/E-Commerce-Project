@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-@include('components.header')
 
-@include('components.breadcrumb', ['title' => 'Shop Detail'])
+<x-header/>
+
+<x-breadcrumb :title="'Shop Detail'"/>
 
 
 <!-- Shop Detail Start -->
@@ -238,25 +236,4 @@
 <!-- Products End -->
 
 
-@include('components.footer')
-
-
-<!-- Back to Top -->
-<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="assets/lib/easing/easing.min.js"></script>
-<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
-
-<!-- Contact Javascript File -->
-<script src="assets/mail/jqBootstrapValidation.min.js"></script>
-<script src="assets/mail/contact.js"></script>
-
-<!-- Template Javascript -->
-<script src="assets/js/main.js"></script>
-</body>
-
-</html>
+<x-footer/>

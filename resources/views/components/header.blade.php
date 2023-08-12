@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>MultiShop - Online Shop Website Template</title>
@@ -133,7 +136,6 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{ route('dashboard') }}" class="nav-item nav-link active">Dashboard</a>
                         <a href="products" class="nav-item nav-link">Shop</a>
-                        <a href="" class="nav-item nav-link">Shop Detail</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                             <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
